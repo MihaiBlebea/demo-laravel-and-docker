@@ -3,7 +3,7 @@ version: '3'
 services:
     app:
         build:
-            context: ./
+            context: .
             dockerfile: .docker/app.docker
         working_dir: /var/www
         volumes:
@@ -22,15 +22,15 @@ services:
         ports:
             - 8080:80
 
-    # python:
-    #     image: python:3.5-slim
-    #     build:
-    #         context: ./
-    #         dockerfile: python.docker
-    #     ports:
-    #         - "85:84"
-    #     networks:
-    #         - code-network
+    python:
+        image: python:3.5-slim
+        build:
+            context: ./
+            dockerfile: python.docker
+        ports:
+            - "85:84"
+        networks:
+            - code-network
 
     database:
         image: mysql:5.6
